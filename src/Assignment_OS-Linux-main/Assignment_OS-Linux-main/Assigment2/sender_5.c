@@ -27,5 +27,5 @@ if(ret<0)
 perror("mq_send");
 exit(2);
 }
-}
+}  
 
