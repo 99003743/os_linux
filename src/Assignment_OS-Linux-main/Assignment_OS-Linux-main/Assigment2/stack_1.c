@@ -5,9 +5,9 @@ sem_t s1;
 sem_t s2;
 int stack[100],top=-1;
 
-void* tentry_fun1(void* pv)	//pull
+void* tentry_fun1(void* pv)
 {
-	int i;
+	int k;
 	printf("A--welcome\n");
 	sem_wait(&s2);
 	sem_wait(&s1);
@@ -19,9 +19,8 @@ void* tentry_fun1(void* pv)	//pull
 }
 
 
-void* tentry_fun2(void* pv)	//push
-{
-	int i;
+void* tentry_fun2(void* pv)	
+	int k;
 	printf("B--welcome\n");
 	sem_wait(&s1);
 	
@@ -47,13 +46,6 @@ int main()
 	printf("main--thank you\n");
 	return 0;	//exit(0);
 }
-
-
-
-
-
-
-
 
 void pop()
 {
