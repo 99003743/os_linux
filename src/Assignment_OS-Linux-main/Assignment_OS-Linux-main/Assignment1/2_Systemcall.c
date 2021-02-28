@@ -2,16 +2,16 @@
 #include<stdio.h>
 int main() 
 { 
-  int fd, sz; 
+  int f, s; 
   char *c = (char *) calloc(100, sizeof(char)); 
   
-  fd = open("foo.txt", O_RDONLY); 
-  if (fd < 0) { perror("r1"); exit(1); } 
+  f = open("foo.txt", O_RDONLY); 
+  if (f < 0) { perror("r1"); exit(1); } 
   
-  sz = read(fd, c, 100); 
-  c[sz] = '\0'; 
+  s = read(f, c, 100); 
+  c[s] = '\0'; 
  //printf("file data: % s\n", c); 
- int words_count=0,line_count=0,i=0;
+ int w_c=0,l_c=0,i=0;
  int inword;
  for(i=0;i<strlen(c);i++)
  {
@@ -20,16 +20,16 @@ int main()
             if(inword)
             {
                 inword=0;
-                words_count++;
+                w_c++;
             }
         }
      if(c[i]=='\n')
-        line_count++;
+        l_c++;
     else 
         inword=1;
 
 
  }
-    printf("\ntotal no lines %d\ntotal no of words %d\ntotal no of characters: %d\n",line_count,words_count,i);
-    close(fd);
+    printf("\ntotal no lines %d\ntotal no of words %d\ntotal no of characters: %d\n",l_c,w_c,i);
+    close(f);
 }
