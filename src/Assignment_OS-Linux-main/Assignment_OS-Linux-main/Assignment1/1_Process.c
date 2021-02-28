@@ -5,12 +5,12 @@ int main()
 {
 	pid_t ret;
 	printf("welcome...pid=%d\n",getpid());
-    char c1[100]="ls",c2[100],c3[100]="-l",c4[100],c5[100];
+    char p[100]="ls",q[100],r[100]="-l",s[100],t[100];
      printf("enter one command\n");
-       gets(c1);
-       gets(c3);
-	   gets(c4);
-	   gets(c5);
+       gets(p);
+       gets(r);
+	   gets(s);
+	   gets(t);
 	   	ret=fork();
 	if(ret<0)
 	{
@@ -21,7 +21,7 @@ int main()
 	{
 		printf("child-1-hello,pid=%d,ppid=%d\n",
 				getpid(),getppid());
-		int k=execlp(strcpy(c2,c1), strcpy(c2,c1),NULL);
+		int k=execlp(strcpy(q,p), strcpy(q,p),NULL);
 		if(k<0)
 		{
             printf("\nerror\n");
@@ -38,7 +38,7 @@ int main()
 		{
 		printf("child-2-hello,pid=%d,ppid=%d\n",
 				getpid(),getppid());
-		int k=execlp(strcpy(c2,c3), strcpy(c2,c3),NULL);
+		int k=execlp(strcpy(q,r), strcpy(q,r),NULL);
 		if(k<0)
 		{
             printf("\nerror\n");
@@ -50,7 +50,7 @@ int main()
 		{
 			if(fork()==0)
 			{
-				int k=execlp(strcpy(c2,c4), strcpy(c2,c4),NULL);
+				int k=execlp(strcpy(q,s), strcpy(q,s),NULL);
 				if(k<0)
 				{
             		printf("\nerror\n");
@@ -61,7 +61,7 @@ int main()
 			else{
 				if(fork()==0)
 				{
-					int k=execlp(strcpy(c2,c5), strcpy(c2,c5),NULL);
+					int k=execlp(strcpy(q,t), strcpy(q,t),NULL);
 				if(k<0)
 				{
             		printf("\nerror\n");
