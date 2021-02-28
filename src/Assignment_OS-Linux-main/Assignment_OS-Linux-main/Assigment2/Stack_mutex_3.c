@@ -2,7 +2,7 @@
 #include<semaphore.h>
 #include<stdio.h>
 
-const int max=10;
+const int MAX=10;
 int stack[10];
 int top=-1;
 int item=1;
@@ -33,7 +33,7 @@ void* efun1(void* pv)		//producer
 	
 	printf("A--welcome\n");
 	pthread_mutex_lock(&m1);
-	for(i=1;i<=max;i++)
+	for(i=1;i<=MAX;i++)
 	{
     	push();
 	}
@@ -59,15 +59,15 @@ void* efun2(void* pv)		//consumer
 int main()
 {
 	printf("main--Welcome\n");
-	pthread_t pt1,pt2;	//thread handles
+	pthread_t p1,p2;	//thread handles
 	sem_init(&s1,0,0);
-	pthread_create(&pt1,NULL,efun1,NULL);
-	pthread_create(&pt2,NULL,efun2,NULL);
-	pthread_join(pt1,NULL);
-	pthread_join(pt2,NULL);
+	pthread_create(&p1,NULL,efun1,NULL);
+	pthread_create(&p2,NULL,efun2,NULL);
+	pthread_join(p1,NULL);
+	pthread_join(p2,NULL);
 	sem_destroy(&s1);
 	pthread_mutex_destroy(&m1);
-	printf("\nmain--Thank you\n");
+	printf("\nmain--Thankyou\n");
 	return 0;
 }
 
