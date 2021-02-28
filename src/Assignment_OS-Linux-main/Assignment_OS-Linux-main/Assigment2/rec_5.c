@@ -7,9 +7,9 @@
 int main(char argc,char *argv[])
 {
  pid_t ret;
- pid_t cpid;
- int max_size =100;
- char cmd[max_size];
+ pid_t dpid;
+ int max_sz =100;
+ char cmd[max_sz];
  	int ret1,nbytes;
 	struct mq_attr attr;
 	attr.mq_msgsize=256;
@@ -53,7 +53,7 @@ int k;
  if(ret>0)
  {
  pid_t status;
- cpid=waitpid(-1,&status,NULL);
+ dpid=waitpid(-1,&status,NULL);
  printf("\nExit status %d",status);
  exit(0);
  }
