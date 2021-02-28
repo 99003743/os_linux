@@ -41,4 +41,3 @@ int main()
 	mq_close(mqid);
 	return 0;
 }
-
