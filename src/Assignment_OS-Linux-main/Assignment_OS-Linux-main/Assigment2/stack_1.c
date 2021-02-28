@@ -8,7 +8,7 @@ int stack[100],top=-1;
 void* tentry_fun1(void* pv)
 {
 	int k;
-	printf("A--welcome\n");
+	printf("A welcome\n");
 	sem_wait(&s2);
 	sem_wait(&s1);
 
@@ -21,7 +21,7 @@ void* tentry_fun1(void* pv)
 
 void* tentry_fun2(void* pv)	
 	int k;
-	printf("B--welcome\n");
+	printf("B welcome\n");
 	sem_wait(&s1);
 	
 	push();
